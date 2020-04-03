@@ -42,16 +42,16 @@ public class SplashObject : MonoBehaviour
         {
             int x = (int)(textureCoord.x * textureWidth) - (splashTexture.width / 2);
             int y = (int)(textureCoord.y * textureHeight) - (splashTexture.height / 2);
-            for (int i = 0; i < splashTexture.width; ++i)
-                for (int j = 0; j  0)
-                {
-                    Color result = Color.Lerp(existingColor, targetColor, alpha);   // resulting color is an addition of splash texture to the texture based on alpha
-                    result.a = existingColor.a + alpha;                             // but resulting alpha is a sum of alphas (adding transparent color should not make base color more transparent)
-                    m_texture.SetPixel(newX, newY, result);
-                }
+            //for (int i = 0; i < splashTexture.width; ++i)
+            //    for (int j = 0; j  0)
+            //    {
+            //        Color result = Color.Lerp(existingColor, targetColor, alpha);   // resulting color is an addition of splash texture to the texture based on alpha
+            //        result.a = existingColor.a + alpha;                             // but resulting alpha is a sum of alphas (adding transparent color should not make base color more transparent)
+            //        m_texture.SetPixel(newX, newY, result);
+            //    }
         }
 
         m_texture.Apply();
     }
 }
-}
+
