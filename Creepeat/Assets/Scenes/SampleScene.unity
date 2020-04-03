@@ -668,12 +668,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &1028831273 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1230052102964734988, guid: 7fe229d9d5e587041ad2dff1c66ed1a4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1103200741}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1103200741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -766,11 +760,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5559639753793135947, guid: 7fe229d9d5e587041ad2dff1c66ed1a4,
-        type: 3}
-      propertyPath: usedCamera
-      value: 
-      objectReference: {fileID: 1028831273}
     - target: {fileID: 5559639753793135949, guid: 7fe229d9d5e587041ad2dff1c66ed1a4,
         type: 3}
       propertyPath: m_Name
