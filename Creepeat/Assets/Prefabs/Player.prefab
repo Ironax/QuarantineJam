@@ -135,7 +135,8 @@ MonoBehaviour:
   maxSpeed: 5
   acceleration: 50
   stopSpeed: 10
-  rotationSpeed: 200
+  rotationSpeed: 2
+  maxXRot: 70
 --- !u!33 &5559639753793135945
 MeshFilter:
   m_ObjectHideFlags: 0

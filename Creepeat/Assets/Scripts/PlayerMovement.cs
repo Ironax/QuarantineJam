@@ -15,7 +15,11 @@ public class PlayerMovement : MonoBehaviour
 	float stopSpeed;
 	[SerializeField]
 	float rotationSpeed;
+	[SerializeField]
+	float maxXRot;
 
+	float yRot = 0;
+	float xRot = 0;
 	Quaternion yQuat = Quaternion.identity;
 	Quaternion xQuat = Quaternion.identity;
 
@@ -36,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 			UpdateMove();
     }
 
-	private void Update()
+	private void LateUpdate()
 	{
 		UpdateRotation();
 	}
@@ -71,8 +75,17 @@ public class PlayerMovement : MonoBehaviour
 		float mouseX = Input.GetAxisRaw("Mouse X");
 		float mouseY = Input.GetAxisRaw("Mouse Y");
 
-		yQuat = yQuat * Quaternion.AngleAxis(mouseX * rotationSpeed * Time.deltaTime, Vector3.up);
-		xQuat = xQuat * Quaternion.AngleAxis(mouseY * rotationSpeed * Time.deltaTime, Vector3.left);
+		yRot += (mouseX) * rotationSpeed;
+		yRot = yRot % 360;
+
+		xRot += (mouseY) * rotationSpeed;
+		if (xRot < -maxXRot)
+			xRot = -maxXRot;
+		if (xRot > maxXRot)
+			xRot = maxXRot;
+
+		yQuat = Quaternion.AngleAxis(yRot, Vector3.up);
+		xQuat = Quaternion.AngleAxis(xRot, Vector3.left);
 
 		usedCamera.transform.localRotation = xQuat;
 		transform.localRotation = yQuat;
