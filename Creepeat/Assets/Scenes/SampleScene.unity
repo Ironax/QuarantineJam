@@ -146,12 +146,17 @@ PrefabInstance:
     - target: {fileID: 3374922015042672876, guid: ce8bcbb5b999e454db3a928f0e973cfe,
         type: 3}
       propertyPath: m_Pitch
-      value: 1.37
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214721221562651827, guid: ce8bcbb5b999e454db3a928f0e973cfe,
+        type: 3}
+      propertyPath: m_DistortionLevel
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4921156264889470841, guid: ce8bcbb5b999e454db3a928f0e973cfe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.69
+      value: 14.7
       objectReference: {fileID: 0}
     - target: {fileID: 4921156264889470841, guid: ce8bcbb5b999e454db3a928f0e973cfe,
         type: 3}
@@ -161,7 +166,7 @@ PrefabInstance:
     - target: {fileID: 4921156264889470841, guid: ce8bcbb5b999e454db3a928f0e973cfe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 58.6
+      value: 34.6
       objectReference: {fileID: 0}
     - target: {fileID: 4921156264889470841, guid: ce8bcbb5b999e454db3a928f0e973cfe,
         type: 3}
@@ -202,6 +207,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994317535247565474, guid: ce8bcbb5b999e454db3a928f0e973cfe,
+        type: 3}
+      propertyPath: m_Delay
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 8676425900427706836, guid: ce8bcbb5b999e454db3a928f0e973cfe,
         type: 3}
@@ -543,7 +553,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 75
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -578,7 +588,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -737,15 +747,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3374922015042672876, guid: ce8bcbb5b999e454db3a928f0e973cfe,
+    - target: {fileID: 1099737994241418243, guid: ce8bcbb5b999e454db3a928f0e973cfe,
         type: 3}
-      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 1
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3374922015042672876, guid: ce8bcbb5b999e454db3a928f0e973cfe,
         type: 3}
-      propertyPath: DopplerLevel
-      value: 5
+      propertyPath: MaxDistance
+      value: 50.28
       objectReference: {fileID: 0}
     - target: {fileID: 4921156264889470841, guid: ce8bcbb5b999e454db3a928f0e973cfe,
         type: 3}
