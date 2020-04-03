@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
 		Input.GetAxisRaw("Vertical")
 		);
 
-
 		if (moveInput.sqrMagnitude != 0)
 		{
 			moveInput.Normalize();
