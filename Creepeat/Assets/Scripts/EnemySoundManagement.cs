@@ -22,7 +22,9 @@ public class EnemySoundManagement : MonoBehaviour
     void Update()
     {
         if (!hasBeenPlayed && goAudioSource.clip != null)
+        {
             PlaySoundIfItExist();
+        }
     }
 
     private void PlaySoundIfItExist()

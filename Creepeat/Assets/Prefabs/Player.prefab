@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5559639753396711816}
-  - component: {fileID: 5559639753396711823}
+  - component: {fileID: 1230052102964734988}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 5559639753793135946}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &5559639753396711823
+--- !u!20 &1230052102964734988
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,7 +59,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -90,10 +90,10 @@ GameObject:
   - component: {fileID: 5559639753793135950}
   - component: {fileID: 6849559532941616648}
   - component: {fileID: 384577912764576571}
-  - component: {fileID: 1695265004624400083}
+  - component: {fileID: 5926060928149256800}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad7b147953200143bdec452cd9b5e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedCamera: {fileID: 5559639753396711823}
+  usedCamera: {fileID: 0}
   maxSpeed: 5
   acceleration: 50
   stopSpeed: 10
@@ -319,7 +319,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &1695265004624400083
+--- !u!81 &5926060928149256800
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

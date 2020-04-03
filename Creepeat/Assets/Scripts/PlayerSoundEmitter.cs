@@ -7,18 +7,19 @@ public class PlayerSoundEmitter : MonoBehaviour
     [SerializeField]
     private int recordingTime = 5;
 
-    private bool micConnected = false;
-
-    private int minFreq;
-    private int maxFreq;
-
     [HideInInspector]
     public AudioSource playerAudioSource;
 
     [HideInInspector]
     public bool isRecording = false;
 
-    //Use this for initialization  
+    private bool micConnected = false;
+
+    private int minFreq;
+    private int maxFreq;
+
+    private float recordingOffsetSeconds = 0.5f;
+
     void Start()
     {
         InitMicrophone();
@@ -65,8 +66,14 @@ public class PlayerSoundEmitter : MonoBehaviour
             }
             else
             {
-                Microphone.End(null);
-                isRecording = false;
+                recordingOffsetSeconds -= Time.deltaTime;
+
+                if (recordingOffsetSeconds <= 0.0f)
+                {
+                    Microphone.End(null);
+                    isRecording = false;
+                    recordingOffsetSeconds = 0.5f;
+                }
             }
 
         }

@@ -13,7 +13,6 @@ public class EnemyBehaviour : MonoBehaviour
         Count
     }
 
-    [SerializeField]
     private GameObject player;
 
     [SerializeField]
@@ -26,6 +25,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Start()
