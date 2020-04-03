@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
 	Rigidbody rb;
 
+	bool isGrounded = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-		UpdateMove();
+		if(isGrounded)
+			UpdateMove();
     }
 
 	private void Update()
@@ -73,5 +76,15 @@ public class PlayerMovement : MonoBehaviour
 
 		usedCamera.transform.localRotation = xQuat;
 		transform.localRotation = yQuat;
+	}
+
+	private void OnCollisionStay(Collision collision)
+	{
+		isGrounded = true;
+	}
+
+	private void OnCollisionExit(Collision collision)
+	{
+		isGrounded = false;
 	}
 }
