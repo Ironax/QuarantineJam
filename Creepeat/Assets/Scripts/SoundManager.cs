@@ -51,7 +51,7 @@ public class SoundManager : MonoBehaviour
             foreach (GameObject enemy in enemyList)
             {
                 enemy.GetComponent<EnemySoundManagement>().hasBeenPlayed = false;
-                enemy.GetComponent<EnemySoundManagement>().timeToWait = Vector3.Distance(enemy.transform.position, player.transform.position) * 0.05f;
+                enemy.GetComponent<EnemySoundManagement>().timeToWait = Vector3.Distance(enemy.transform.position, player.transform.position) * 0.035f;
                 enemy.GetComponent<AudioSource>().clip = playerAudioSource.clip;
             }
 
