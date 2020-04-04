@@ -39,8 +39,6 @@ public class EnemySoundManagement : MonoBehaviour
                 hasBeenPlayed = true;
             }
         }
-
-
     }
 
     IEnumerator PlaySoundCouroutine()
