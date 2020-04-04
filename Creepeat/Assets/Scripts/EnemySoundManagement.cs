@@ -12,10 +12,20 @@ public class EnemySoundManagement : MonoBehaviour
     [HideInInspector]
     public bool hasBeenPlayed = false;
 
+    [SerializeField]
+    private int nbrOfAudioPossible = 20;
+
     private AudioSource goAudioSource;
+
+    private List<AudioClip> listOfAllAudios = new List<AudioClip>();
+
+    private float timeBeetweenRandomSound = 0f;
+    private float randomTimeBeetweenSounds = 0f;
 
     void Start()
     {
+        randomTimeBeetweenSounds = Random.Range(3f, 7f);
+        timeBeetweenRandomSound = randomTimeBeetweenSounds;
         goAudioSource = GetComponent<AudioSource>();
     }
 
@@ -24,6 +34,11 @@ public class EnemySoundManagement : MonoBehaviour
         if (!hasBeenPlayed && goAudioSource.clip != null)
         {
             PlaySoundIfItExist();
+            timeBeetweenRandomSound = randomTimeBeetweenSounds;
+        }
+        else
+        {
+            PlayRandomSound();
         }
     }
 
@@ -35,22 +50,37 @@ public class EnemySoundManagement : MonoBehaviour
         {
             if (goAudioSource.clip != null && !goAudioSource.isPlaying)
             {
+                if (!listOfAllAudios.Contains(goAudioSource.clip))
+                {
+                    if (listOfAllAudios.Count >= nbrOfAudioPossible)
+                        listOfAllAudios.Remove(listOfAllAudios[0]);
+
+                    listOfAllAudios.Add(goAudioSource.clip);
+                }
+
                 goAudioSource.Play();
                 hasBeenPlayed = true;
             }
         }
-
-
     }
 
-    IEnumerator PlaySoundCouroutine()
+    private void PlayRandomSound()
     {
-        yield return new WaitForSeconds(timeToWait);
+        if (listOfAllAudios.Count <= 0)
+            return;
 
-        if (goAudioSource.clip != null && !goAudioSource.isPlaying)
+        timeBeetweenRandomSound -= Time.deltaTime;
+
+        if (timeBeetweenRandomSound <= 0)
         {
+            int random = Random.Range(0, listOfAllAudios.Count);
+
+            goAudioSource.clip = listOfAllAudios[random];
+
             goAudioSource.Play();
-            hasBeenPlayed = true;
+
+            timeBeetweenRandomSound = randomTimeBeetweenSounds;
         }
     }
+
 }
