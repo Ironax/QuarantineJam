@@ -15,9 +15,9 @@ public class Door : MonoBehaviour
     {
         
     }
-
+	
 	public void OnUse()
 	{
-		gameObject.SetActive( false);
+		gameObject.SetActive(false);
 	}
 }
