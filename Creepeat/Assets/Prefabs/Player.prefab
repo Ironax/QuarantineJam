@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad7b147953200143bdec452cd9b5e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedCamera: {fileID: 0}
+  usedCamera: {fileID: 1230052102964734988}
   maxSpeed: 5
   acceleration: 50
   stopSpeed: 10
