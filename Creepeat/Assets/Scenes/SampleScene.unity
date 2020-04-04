@@ -339,6 +339,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9158940553281706101, guid: ce8bcbb5b999e454db3a928f0e973cfe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce8bcbb5b999e454db3a928f0e973cfe, type: 3}
 --- !u!1 &520109359
@@ -704,6 +709,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ClearFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559639753793135944, guid: 7fe229d9d5e587041ad2dff1c66ed1a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d7e3ed3f343b184aa81ff514a9c6436, type: 2}
+    - target: {fileID: 5559639753793135944, guid: 7fe229d9d5e587041ad2dff1c66ed1a4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5559639753793135946, guid: 7fe229d9d5e587041ad2dff1c66ed1a4,
         type: 3}
@@ -1854,7 +1869,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fa26765293b140b4592452b88999e5bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
