@@ -1,97 +1,162 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
     [Flags]
-    public enum State 
-    { 
-        Chill = 0,
-        Disrupted,
-        Scared,
-        Count
-    }
-
-    private GameObject player;
+    enum State { Chill = 0x01, Disrupted = 0x02, Scared = 0x04, Count = 3}
 
     [SerializeField]
-    private State state;
+    private State state = State.Chill;
 
-    private NavMeshAgent agent;
+    [SerializeField]
+    private float disruptedTime = 2.0f;
 
-    private Vector3 targetPos;
+    [SerializeField]
+    private List<GameObject> scaredWaypoints = new List<GameObject>();
+
+    private GameObject player   = null;
+    private NavMeshAgent agent  = null;
+
+    private float timer = 0.0f;
+    private bool timerStart = false;
+
+    public Vector3 Destination { get => agent.destination; set => agent.destination = value; }
+
+    public void StartTimer()
+    {
+        timerStart = true;
+    }
+
+    private void ResetTimer()
+    {
+        timer = 0.0f;
+        timerStart = false;
+    }
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+        agent  = GetComponent<NavMeshAgent>();
     }
 
     private void Start()
     {
-        targetPos = player.transform.position;
-        agent.destination = targetPos;
-    }
+        agent.destination = player.transform.position;
 
-    private void Update()
-    {
-        switch(state)
+        switch (state)
         {
             case State.Chill:
                 ToChill();
-                ChillBehaviour();
                 break;
             case State.Disrupted:
                 ToDisrupted();
-                DisruptedBehaviour();
                 break;
             case State.Scared:
                 ToScared();
-                ScaredBehaviour();
                 break;
         }
     }
 
+    private void Update()
+    {
+        if (timerStart)
+            timer += Time.deltaTime;
+
+        switch(state)
+        {
+            case State.Chill:
+                ChillBehaviour();
+                break;
+            case State.Disrupted:
+                DisruptedBehaviour();
+                break;
+            case State.Scared:
+                ScaredBehaviour();
+                break;
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+            ToScared();
+    }
+
     private void ChillBehaviour()
     {
-        targetPos = player.transform.position;
-        agent.destination = targetPos;
-
-        //// if close to player move towards him, if not approach him
-        //if (agent.remainingDistance < 0.1f)
-        //{
-        //    agent.destination = targetPos;
-        //}
+        if (agent.remainingDistance < 0.5f)
+        {
+            agent.destination = player.transform.position;
+        }
     }
 
     private void DisruptedBehaviour()
     {
-        // modifie destination when moved from state or ai will continue to move towards player
         agent.destination = player.transform.position;
+
+        if (timer > disruptedTime)
+            ToChill();
     }
 
     private void ScaredBehaviour()
     {
-        // get away from point where became scared
-        agent.destination = (transform.position - player.transform.position).normalized * 100.0f;
+        if (agent.remainingDistance < 0.5f)
+        {
+            ToChill();
+        }
     }
 
-    private void ToChill()
+    public void ToChill()
     {
-        agent.speed = 1;
-        agent.acceleration = 10;
+        ResetTimer();
+
+        agent.speed        = 1.0f;
+        agent.acceleration = 1.0f;
+
+        state = State.Chill;
     }
 
-    private void ToDisrupted()
+    public void ToDisrupted()
     {
-        agent.speed = 10;
-        agent.acceleration = 10;
+        ResetTimer();
+
+        agent.speed        = 10.0f;
+        agent.acceleration = 5.0f;
+
+        state = State.Disrupted;
     }
 
-    private void ToScared()
+    public void ToScared()
     {
-        agent.speed = 10;
-        agent.acceleration = 10;
+        ResetTimer();
+
+        agent.speed        = 10.0f;
+        agent.acceleration = 10.0f;
+
+        agent.destination = BestFitWaypoint();
+
+        state = State.Scared;
+    }
+
+    private Vector3 BestFitWaypoint()
+    {
+        Vector3 bestFit = Vector3.zero;
+
+        float angle = -1.0f;
+
+        Vector3 playerToEnemy = (transform.position - player.transform.position).normalized;
+
+        foreach (GameObject waypoint in scaredWaypoints)
+        {
+            float dot = Vector3.Dot(playerToEnemy, (waypoint.transform.position - transform.position).normalized);
+
+            if (dot > angle)
+            {
+                angle = dot;
+                bestFit = waypoint.transform.position;
+            }
+        }
+
+        return bestFit;
     }
 }
