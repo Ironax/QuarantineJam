@@ -13,7 +13,6 @@ public class EnemyBehaviour : MonoBehaviour
         Count
     }
 
-    [SerializeField]
     private GameObject player;
 
     [SerializeField]
@@ -26,6 +25,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Start()
@@ -55,12 +55,14 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void ChillBehaviour()
     {
-        // if close to player move towards him, if not approach him
-        if (agent.remainingDistance < 0.1f)
-        {
-            targetPos = player.transform.position;
-            agent.destination = targetPos;
-        }
+        targetPos = player.transform.position;
+        agent.destination = targetPos;
+
+        //// if close to player move towards him, if not approach him
+        //if (agent.remainingDistance < 0.1f)
+        //{
+        //    agent.destination = targetPos;
+        //}
     }
 
     private void DisruptedBehaviour()
