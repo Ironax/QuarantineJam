@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:Creepeat/Assets/Shaders.meta
 guid: 5b38a8fe645cb4a449e5969ee8425bfb
 =======
 guid: 2c062be4633685c4fbb519cce7f24358
 >>>>>>> Matthieu:Creepeat/Assets/Prefabs.meta
+=======
+guid: 033ac99ef62388243aa398024450a179
+>>>>>>> Pierre
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
