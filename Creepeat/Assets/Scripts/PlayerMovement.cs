@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
 		rb = GetComponent<Rigidbody>();
+		Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
