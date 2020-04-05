@@ -49,13 +49,14 @@ public class PhoneScenario : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isPhoneRinging && hasAnwswered == false)
-            canvas.gameObject.SetActive(true);
+
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetButton("MakeSound") && isPhoneRinging && hasAnwswered == false)
+		if (isPhoneRinging && hasAnwswered == false)
+			canvas.gameObject.SetActive(true);
+		if (Input.GetButton("MakeSound") && isPhoneRinging && hasAnwswered == false)
         {
             enemy.GetComponent<NavMeshAgent>().enabled = true;
 
