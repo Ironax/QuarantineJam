@@ -6,10 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
 	[SerializeField]
 	Camera usedCamera;
-    [SerializeField]
-    Texture2D splashTexture;
 
-    [SerializeField]
+	[SerializeField]
 	float maxSpeed;
 	[SerializeField]
 	float acceleration;
@@ -24,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
 	float xRot = 0;
 	Quaternion yQuat = Quaternion.identity;
 	Quaternion xQuat = Quaternion.identity;
-
 	Rigidbody rb;
 
 	bool isGrounded = false;
@@ -33,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
 		rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
+		Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -46,11 +43,9 @@ public class PlayerMovement : MonoBehaviour
 	private void LateUpdate()
 	{
 		UpdateRotation();
-        SplashFlour();
+	}
 
-    }
-
-    private void UpdateMove()
+	private void UpdateMove()
 	{
 		Vector3 moveInput = new Vector3(
 		Input.GetAxisRaw("Horizontal")
@@ -73,28 +68,6 @@ public class PlayerMovement : MonoBehaviour
 				rb.velocity = Vector3.zero;
 		}
 	}
-
-    private void SplashFlour()
-    {
-        //if(Input.GetMouseButtonDown(0))
-        //{
-        //    RaycastHit hit;
-        //    Ray ray = usedCamera.ScreenPointToRay(Input.mousePosition);
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        SplashObject script = hit.collider.gameObject.GetComponent<SplashObject>();
-        //        if (null != script)
-        //            script.PaintOn(hit.point, splashTexture);
-        //    }
-        //}
-    }
-
-    private void OnDrawGizmos()
-    {
-        Ray ray = usedCamera.ScreenPointToRay(Input.mousePosition);
-        Gizmos.color = Color.black;
-        Gizmos.DrawLine(ray.origin, ray.origin + ray.direction * 20);
-    }
 
 	private void UpdateRotation()
 	{
@@ -119,7 +92,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void OnCollisionStay(Collision collision)
 	{
-		isGrounded = true;
+		//if(Vector3.Angle(collision.impulse, Vector3.up) < 30)
+			isGrounded = true;
 	}
 
 	private void OnCollisionExit(Collision collision)

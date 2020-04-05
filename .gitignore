@@ -2,6 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+[Bb]uild/
+
 /.vs/QuarantineJam/v15
 /.vs/VSWorkspaceState.json
 /.vs/slnx.sqlite
