@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4127144177049391484}
   - component: {fileID: 4127144177049391486}
   m_Layer: 0
-  m_Name: Flour 1
-  m_TagString: Untagged
+  m_Name: Flour
+  m_TagString: Flour
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
