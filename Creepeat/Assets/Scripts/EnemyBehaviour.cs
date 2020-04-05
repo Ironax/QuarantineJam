@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 public class EnemyBehaviour : MonoBehaviour
 {
     [Flags]
-    enum State { Chill = 0x01, Disrupted = 0x02, Scared = 0x04, Count = 3}
+    public enum State { Chill = 0x01, Disrupted = 0x02, Scared = 0x04, Count = 3}
 
     [SerializeField]
-    private State state = State.Chill;
+    public State state = State.Chill;
 
     [SerializeField]
     private float disruptedTime = 2.0f;

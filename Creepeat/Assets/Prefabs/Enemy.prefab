@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 8325869697017825712}
   - component: {fileID: 5490582436842012520}
   - component: {fileID: 1312657826}
-  - component: {fileID: 2748350884984500896}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -393,15 +392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlourEffect: {fileID: 4418255883653660010}
---- !u!170 &2748350884984500896
-AudioDistortionFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676425900427706836}
-  m_Enabled: 1
-  m_DistortionLevel: 1
 --- !u!1001 &1588704869
 PrefabInstance:
   m_ObjectHideFlags: 0
