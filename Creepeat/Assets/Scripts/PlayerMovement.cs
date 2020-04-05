@@ -77,17 +77,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void SplashFlour()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = usedCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                SplashObject script = hit.collider.gameObject.GetComponent<SplashObject>();
-                if (null != script)
-                    script.PaintOn(hit.textureCoord, splashTexture);
-            }
-        }
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    RaycastHit hit;
+        //    Ray ray = usedCamera.ScreenPointToRay(Input.mousePosition);
+        //    if (Physics.Raycast(ray, out hit))
+        //    {
+        //        SplashObject script = hit.collider.gameObject.GetComponent<SplashObject>();
+        //        if (null != script)
+        //            script.PaintOn(hit.point, splashTexture);
+        //    }
+        //}
     }
 
     private void OnDrawGizmos()
