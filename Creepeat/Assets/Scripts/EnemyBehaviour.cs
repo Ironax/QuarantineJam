@@ -159,4 +159,12 @@ public class EnemyBehaviour : MonoBehaviour
 
         return bestFit;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            Debug.Log("kill player here");
+        }
+    }
 }
