@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 public class EnemyBehaviour : MonoBehaviour
 {
     [Flags]
-    enum State { Chill = 0x01, Disrupted = 0x02, Scared = 0x04, Count = 3}
+    public enum State { Chill = 0x01, Disrupted = 0x02, Scared = 0x04, Count = 3}
 
     [SerializeField]
-    private State state = State.Chill;
+    public State state = State.Chill;
 
     [SerializeField]
     private float disruptedTime = 2.0f;
@@ -114,8 +114,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
         ResetTimer();
 
-        agent.speed        = 1.0f;
-        agent.acceleration = 1.0f;
+        agent.speed        = 2.5f;
+        agent.acceleration = 2.5f;
 
         state = State.Chill;
     }
@@ -168,6 +168,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+
             GameManager.Instance.GameOver();
         }
         else if (collision.gameObject.tag == "Flour")

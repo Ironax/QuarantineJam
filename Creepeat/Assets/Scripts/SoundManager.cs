@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     private static SoundManager _instance;
 
-    public static SoundManager Instance { get { return _instance; } }
+    public static SoundManager Instance => _instance;
 
     AudioClip tmpClip;
 
@@ -30,10 +30,13 @@ public class SoundManager : MonoBehaviour
     PlayerSoundEmitter playerSoundEmmiter;
     AudioSource playerAudioSource;
 
+    AudioSource audioSource;
+
     void Start()
     {
         playerSoundEmmiter = player.GetComponent<PlayerSoundEmitter>();
         playerAudioSource = player.GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         GameObject[] objects = FindObjectsOfType<GameObject>();
       
@@ -56,6 +59,19 @@ public class SoundManager : MonoBehaviour
             }
 
             playerAudioSource.clip = null;
+        }
+
+        foreach (GameObject enemy in enemyList)
+        {
+            if (enemy.GetComponent<EnemyBehaviour>().state == EnemyBehaviour.State.Disrupted)
+            {
+                if (!audioSource.isPlaying)
+                    audioSource.Play();
+            }
+            else
+            {
+                audioSource.Stop();
+            }
         }
     }
 
