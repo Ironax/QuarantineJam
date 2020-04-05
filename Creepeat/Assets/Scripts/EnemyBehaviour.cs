@@ -168,6 +168,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+
             GameManager.Instance.GameOver();
         }
         else if (collision.gameObject.tag == "Flour")

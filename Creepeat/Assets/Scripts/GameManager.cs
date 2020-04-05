@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField]
 	private Canvas canvas;
+
+	public Action onGameOver;
 
 	public void CloseGame()
 	{
@@ -42,9 +45,20 @@ public class GameManager : MonoBehaviour
 		Application.quitting += action;
 	}
 
-	public void GameOver()
+	public void GoToGameOverScene()
 	{
 		SceneManager.LoadScene(1);
+	}
+
+	public void GameOver()
+	{
+		var camShake = Camera.main.GetComponent<CameraShake>();
+		camShake.enabled = true;
+		const float delay = 2.0f;
+		camShake.shakeDuration = delay;
+
+		onGameOver?.Invoke();
+		Invoke("GoToGameOverScene", delay);
 	}
 
 	public void LaunchGame()

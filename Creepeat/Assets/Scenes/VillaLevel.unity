@@ -9444,6 +9444,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 325634953}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &326811567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5559639753396711821, guid: 7fe229d9d5e587041ad2dff1c66ed1a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 563475285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &326811574 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5559639753396711816, guid: 7fe229d9d5e587041ad2dff1c66ed1a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 563475285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &326811575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326811567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6e50fc4a3c823438996c13fcf7160e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 326811574}
+  enemyTransform: {fileID: 1024753669}
+  shakeDuration: 0
+  shakeAmount: 0.08
+  decreaseFactor: 4.65
 --- !u!1001 &327507750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26760,6 +26789,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2748350884984500896, guid: ce8bcbb5b999e454db3a928f0e973cfe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3595419738650676850, guid: ce8bcbb5b999e454db3a928f0e973cfe,
         type: 3}
       propertyPath: scaredWaypoints.Array.size
@@ -26857,6 +26891,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce8bcbb5b999e454db3a928f0e973cfe, type: 3}
+--- !u!4 &1024753669 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7590560760653376804, guid: ce8bcbb5b999e454db3a928f0e973cfe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1024753668}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1027614205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51567,7 +51607,6 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   pitchMax: 0.9
   pitchMin: 0.3
-  pitchProbability: 0.1
   pitchSpeed: 1
 --- !u!1001 &1998733063
 PrefabInstance:

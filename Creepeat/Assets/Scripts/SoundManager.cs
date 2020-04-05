@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     private static SoundManager _instance;
 
-    public static SoundManager Instance { get { return _instance; } }
+    public static SoundManager Instance => _instance;
 
     AudioClip tmpClip;
 
