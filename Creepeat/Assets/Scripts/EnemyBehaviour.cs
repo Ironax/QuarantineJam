@@ -124,7 +124,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         ResetTimer();
 
-        agent.speed        = 10.0f;
+        agent.speed        = 4.0f;
         agent.acceleration = 5.0f;
 
         state = State.Disrupted;
@@ -169,6 +169,10 @@ public class EnemyBehaviour : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             GameManager.Instance.GameOver();
+        }
+        else if (collision.gameObject.tag == "Flour")
+        {
+            ToScared();
         }
     }
 }
