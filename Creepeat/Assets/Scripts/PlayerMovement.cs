@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
 		rb = GetComponent<Rigidbody>();
 		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 		GameManager.Instance.onGameOver += () =>
 		{
 			rb.isKinematic = true;

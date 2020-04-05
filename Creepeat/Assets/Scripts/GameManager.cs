@@ -28,7 +28,10 @@ public class GameManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.P))
 		{
 			if (Cursor.lockState != CursorLockMode.Locked)
+			{
+				Cursor.visible = false;
 				Cursor.lockState = CursorLockMode.Locked;
+			}
 			else
 			{
 				Cursor.visible = true;
