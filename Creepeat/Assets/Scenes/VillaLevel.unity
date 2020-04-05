@@ -7926,6 +7926,11 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6392480774176197850, guid: 5d0e2f3c9733ad24c8a19d2e89ac5add,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d0e2f3c9733ad24c8a19d2e89ac5add, type: 3}
 --- !u!4 &258580177 stripped
@@ -19240,6 +19245,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 734479332}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &734987925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8119232095248422364, guid: 5d0e2f3c9733ad24c8a19d2e89ac5add,
+    type: 3}
+  m_PrefabInstance: {fileID: 258580176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &734987928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734987925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21f1c10618ba7e498ae7e5065f51589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minBlinkTime: 0.2
+  maxBlinkTime: 0.88
+  minIntensity: 0.28
+  maxIntensity: 1.43
 --- !u!1001 &736426333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38223,6 +38250,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1457028321}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1457961417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8119232095248422364, guid: 5d0e2f3c9733ad24c8a19d2e89ac5add,
+    type: 3}
+  m_PrefabInstance: {fileID: 1639354272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1457961420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457961417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21f1c10618ba7e498ae7e5065f51589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minBlinkTime: 0.2
+  maxBlinkTime: 1
+  minIntensity: 0.2
+  maxIntensity: 1
 --- !u!1001 &1460512163
 PrefabInstance:
   m_ObjectHideFlags: 0
