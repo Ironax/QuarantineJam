@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4921156264889470841}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &5997631634232783396
 SphereCollider:
@@ -70,8 +70,9 @@ GameObject:
   - component: {fileID: 9158940553281706101}
   - component: {fileID: 3595419738650676850}
   - component: {fileID: 8268312781937859000}
-  - component: {fileID: 3374922015042672876}
   - component: {fileID: 7432185073381571409}
+  - component: {fileID: 3374922015042672876}
+  - component: {fileID: 4736601333326508328}
   - component: {fileID: 8325869697017825712}
   - component: {fileID: 5490582436842012520}
   - component: {fileID: 1312657826}
@@ -95,6 +96,7 @@ Transform:
   m_Children:
   - {fileID: 6319877772024492567}
   - {fileID: 4418255883653660009}
+  - {fileID: 1267902534586829119}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -175,6 +177,29 @@ MonoBehaviour:
   timeToWait: 0
   hasBeenPlayed: 0
   nbrOfAudioPossible: 20
+--- !u!164 &7432185073381571409
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676425900427706836}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1000
+  m_RoomHF: -300
+  m_DecayTime: 1.49
+  m_DecayHFRatio: 0.59
+  m_ReflectionsLevel: -1219
+  m_ReverbLevel: 441
+  m_ReverbDelay: 0.011
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 13
 --- !u!82 &3374922015042672876
 AudioSource:
   m_ObjectHideFlags: 0
@@ -271,29 +296,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!164 &7432185073381571409
-AudioReverbFilter:
+--- !u!114 &4736601333326508328
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8676425900427706836}
   m_Enabled: 1
-  m_DryLevel: 0
-  m_Room: -1000
-  m_RoomHF: -300
-  m_DecayTime: 1.49
-  m_DecayHFRatio: 0.59
-  m_ReflectionsLevel: -1219
-  m_ReverbLevel: 441
-  m_ReverbDelay: 0.011
-  m_Diffusion: 100
-  m_Density: 100
-  m_HFReference: 5000
-  m_RoomLF: 0
-  m_LFReference: 250
-  m_ReflectionsDelay: 0
-  m_ReverbPreset: 13
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63688814363f15a45a0a5033209f3d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 3374922015042672876}
+  pitchMax: 0.8
+  pitchMin: 0.4
+  pitchSpeed: 0.2
 --- !u!195 &8325869697017825712
 NavMeshAgent:
   m_ObjectHideFlags: 0

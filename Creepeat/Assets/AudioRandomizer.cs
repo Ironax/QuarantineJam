@@ -7,9 +7,13 @@ public class AudioRandomizer : MonoBehaviour
 	[SerializeField]
 	AudioSource audioSource;
 	[SerializeField]
-	float pitchMax;
+	public float pitchMax;
 	[SerializeField]
-	float pitchMin;
+	public float pitchMin;
+	[SerializeField]
+	float pitchSpeed;
+
+	int pitchIncreasing = 1;
 
 	// Start is called before the first frame update
 	void Start()
@@ -22,7 +26,19 @@ public class AudioRandomizer : MonoBehaviour
     {
         if(audioSource)
 		{
+			float rand = Random.value;
 
+			audioSource.pitch += Time.deltaTime * pitchIncreasing * pitchSpeed * rand;
+			if(audioSource.pitch >= pitchMax)
+			{
+				audioSource.pitch = pitchMax;
+				pitchIncreasing = -1;
+			}
+			else if (audioSource.pitch <= pitchMin)
+			{
+				audioSource.pitch = pitchMin;
+				pitchIncreasing = 1;
+			}
 		}
     }
 }

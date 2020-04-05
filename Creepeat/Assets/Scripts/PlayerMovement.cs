@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
 	float xRot = 0;
 	Quaternion yQuat = Quaternion.identity;
 	Quaternion xQuat = Quaternion.identity;
-
 	Rigidbody rb;
 
 	bool isGrounded = false;
@@ -93,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void OnCollisionStay(Collision collision)
 	{
-		if(Vector3.Angle(collision.impulse, Vector3.up) < 30)
+		//if(Vector3.Angle(collision.impulse, Vector3.up) < 30)
 			isGrounded = true;
 	}
 
