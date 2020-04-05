@@ -92,7 +92,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void OnCollisionStay(Collision collision)
 	{
-		isGrounded = true;
+		if(Vector3.Angle(collision.impulse, Vector3.up) < 30)
+			isGrounded = true;
 	}
 
 	private void OnCollisionExit(Collision collision)
