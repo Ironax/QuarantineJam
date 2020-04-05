@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-
 public class EnemySoundManagement : MonoBehaviour
 {
     [HideInInspector]
@@ -11,6 +10,8 @@ public class EnemySoundManagement : MonoBehaviour
 
     [HideInInspector]
     public bool hasBeenPlayed = false;
+
+    public AudioClip ScreamClip;
 
     [SerializeField]
     private int nbrOfAudioPossible = 20;
@@ -27,6 +28,7 @@ public class EnemySoundManagement : MonoBehaviour
         randomTimeBeetweenSounds = Random.Range(10f, 15f);
         timeBeetweenRandomSound = randomTimeBeetweenSounds;
         goAudioSource = GetComponent<AudioSource>();
+        GameManager.Instance.onGameOver += Scream;
     }
 
     void Update()
@@ -81,6 +83,13 @@ public class EnemySoundManagement : MonoBehaviour
 
             timeBeetweenRandomSound = randomTimeBeetweenSounds;
         }
+    }
+
+    private void Scream()
+    {
+	    goAudioSource.pitch = 1.0f;
+		goAudioSource.clip = ScreamClip;
+		goAudioSource.Play();
     }
 
 }
