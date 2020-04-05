@@ -26981,6 +26981,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8268312781937859000, guid: ce8bcbb5b999e454db3a928f0e973cfe,
+        type: 3}
+      propertyPath: ScreamClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9de47ec8a64613442b00e636458cee70, type: 3}
     - target: {fileID: 8325869697017825712, guid: ce8bcbb5b999e454db3a928f0e973cfe,
         type: 3}
       propertyPath: m_Speed

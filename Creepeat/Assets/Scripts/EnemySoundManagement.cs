@@ -11,6 +11,8 @@ public class EnemySoundManagement : MonoBehaviour
     [HideInInspector]
     public bool hasBeenPlayed = false;
 
+    public AudioClip ScreamClip;
+
     [SerializeField]
     private int nbrOfAudioPossible = 20;
 
@@ -85,12 +87,9 @@ public class EnemySoundManagement : MonoBehaviour
 
     private void Scream()
     {
-	    GetComponent<AudioDistortionFilter>().enabled = true;
-	    foreach (var audio in listOfAllAudios)
-	    {
-		    goAudioSource.clip = audio;
-		    goAudioSource.Play();
-		}
+	    goAudioSource.pitch = 1.0f;
+		goAudioSource.clip = ScreamClip;
+		goAudioSource.Play();
     }
 
 }
