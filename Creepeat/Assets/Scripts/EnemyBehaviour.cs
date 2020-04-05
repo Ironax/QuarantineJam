@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -83,9 +84,6 @@ public class EnemyBehaviour : MonoBehaviour
                 ScaredBehaviour();
                 break;
         }
-
-        if (Input.GetKeyDown(KeyCode.S))
-            ToScared();
     }
 
     private void ChillBehaviour()
@@ -170,7 +168,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Debug.Log("kill player here");
+            GameManager.Instance.GameOver();
         }
     }
 }

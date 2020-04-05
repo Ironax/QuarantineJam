@@ -58,4 +58,9 @@ public class SoundManager : MonoBehaviour
             playerAudioSource.clip = null;
         }
     }
+
+    public void UpdateGeneralSound(float value)
+    {
+        AudioListener.volume = value;
+    }
 }
