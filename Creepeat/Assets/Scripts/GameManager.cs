@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,8 +22,18 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (Cursor.lockState != CursorLockMode.Locked)
+                Cursor.lockState = CursorLockMode.Locked;
+            else
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+
             canvas.gameObject.SetActive(!canvas.gameObject.activeSelf);
+        }
     }
 
     // add function to quitting event //
@@ -30,4 +41,15 @@ public class GameManager : MonoBehaviour
     {
         Application.quitting += action;
     }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LaunchGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }

@@ -6,7 +6,8 @@ using UnityEngine;
 public class Grabbable : MonoBehaviour
 {
 	Rigidbody rb;
-
+    [SerializeField]
+    bool isFlour = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,4 +34,26 @@ public class Grabbable : MonoBehaviour
 		rb.isKinematic = false;
 		transform.SetParent(null);
 	}
+
+    public void Throw()
+    {
+        rb.isKinematic = false;
+        Vector3 forward = transform.parent.transform.forward;
+        transform.SetParent(null);
+        rb.AddForce(forward * 1000.0f);
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isFlour)
+        {
+            SplashObject script = collision.gameObject.GetComponent<SplashObject>();
+                if (script)
+                {
+                    script.PaintOn();
+                    Destroy(gameObject);
+                }
+        }
+    }
 }
