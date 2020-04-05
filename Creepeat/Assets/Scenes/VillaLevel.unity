@@ -19002,6 +19002,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6496916, guid: e21009e7dc5e8544c82d5fe2b089da33, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e21009e7dc5e8544c82d5fe2b089da33, type: 3}
 --- !u!4 &718829998 stripped
@@ -51491,8 +51495,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
-  pitchMax: 0
-  pitchMin: 0
+  pitchMax: 0.9
+  pitchMin: 0.3
+  pitchProbability: 0.1
+  pitchSpeed: 1
 --- !u!1001 &1998733063
 PrefabInstance:
   m_ObjectHideFlags: 0
