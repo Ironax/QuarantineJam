@@ -24,7 +24,7 @@ public class EnemySoundManagement : MonoBehaviour
 
     void Start()
     {
-        randomTimeBeetweenSounds = Random.Range(3f, 7f);
+        randomTimeBeetweenSounds = Random.Range(10f, 15f);
         timeBeetweenRandomSound = randomTimeBeetweenSounds;
         goAudioSource = GetComponent<AudioSource>();
     }

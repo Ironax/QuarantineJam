@@ -47,6 +47,15 @@ public class Grabber : MonoBehaviour
 				}
 			}
 		}
+        
+        if (Input.GetMouseButtonDown(0) && isGrabbing)
+        {
+            if (useJoint)
+                 Destroy(joint);
+
+            grabbable.Throw();
+            isGrabbing = false;
+        }
     }
 
 	private void OnTriggerEnter(Collider other)
