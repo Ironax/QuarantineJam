@@ -44,6 +44,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void Start()
     {
+        if (agent.enabled == false)
+            return;
+
         agent.destination = player.transform.position;
 
         switch (state)
@@ -64,6 +67,9 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (timerStart)
             timer += Time.deltaTime;
+
+        if (agent.enabled == false)
+            return;
 
         switch(state)
         {
