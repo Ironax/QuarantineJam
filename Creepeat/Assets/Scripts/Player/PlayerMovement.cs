@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		yRot = transform.eulerAngles.y;
 		rb = GetComponent<Rigidbody>();
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
